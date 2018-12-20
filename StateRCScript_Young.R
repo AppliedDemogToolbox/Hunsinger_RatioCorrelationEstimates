@@ -1,7 +1,7 @@
 #######################################################################################################################################################################################################
 #SIMPLE R CODE FOR SIMPLE RATIO-CORRELATION POPULATION ESTIMATES FOR US STATES, UNDER 18, FOLLOWING INSTRUCTIONS FROM:
 #H. Shyrock and J. Segal (1980). 'The Methods and Materials of Demography', Volume 2. U.S. Department of Commerce.
-#EDDIE HUNSINGER, AUGUST 2010
+#EDDIE HUNSINGER, AUGUST 2010 (UPDATED DECEMBER 2018)
 #JUST LEARNING/RESEARCHING
 #######################################################################################################################################################################################################
 
