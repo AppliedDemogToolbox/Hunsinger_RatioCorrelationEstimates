@@ -1,7 +1,7 @@
 #######################################################################################################################################################################################################
 #SIMPLE R CODE FOR SIMPLE RATIO-CORRELATION POPULATION ESTIMATES FOR US STATES, UNDER 18, FOLLOWING INSTRUCTIONS FROM:
 #H. Shyrock and J. Segal (1980). 'The Methods and Materials of Demography', Volume 2. U.S. Department of Commerce.
-#EDDIE HUNSINGER, AUGUST 2010
+#EDDIE HUNSINGER, AUGUST 2010 (UPDATED DECEMBER 2018)
 #JUST LEARNING/RESEARCHING
 #######################################################################################################################################################################################################
 
@@ -84,7 +84,7 @@ Sys.sleep(3)
 #STEP 7: READ IN DATA FOR 2009 VARIABLES (AND 2000 WITH UPDATED GEOGRAPHIC BOUNDARIES), TO BE USED IN A 2009 RATIO-CORRELATION POPULATION ESTIMATE
 #######################################################################################################################################################################################################
 
-#EstimateData2009<-read.table(file="http://www.demog.berkeley.edu/~eddieh/RatioCorrelationEstimates/2009EstimateVariables.csv",header=TRUE,sep=",")
+#EstimateData2009<-read.table(file="https://github.com/AppliedDemogToolbox/Hunsinger_RatioCorrelationEstimates/raw/master/2009EstimateVariables.csv,header=TRUE,sep=",")
 
 B2009_2009<-EstimateData2009$Births_2009
 B2009_2000<-EstimateData2009$Births_2000
