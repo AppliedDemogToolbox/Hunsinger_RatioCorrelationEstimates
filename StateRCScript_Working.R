@@ -10,7 +10,7 @@
 #STEP 1: READ DATA IN AND GET RATIOS FOR THE RATIO-CORRELATION METHOD
 #######################################################################################################################################################################################################
 
-ModelData<-read.table(file="http://www.demog.berkeley.edu/~eddieh/RatioCorrelationEstimates/WorkingVariables.csv",header=TRUE,sep=",")
+ModelData<-read.table(file="https://github.com/AppliedDemogToolbox/Hunsinger_RatioCorrelationEstimates/raw/master/WorkingVariables.csv",header=TRUE,sep=",")
 
 QC_2000<-ModelData$QCEWEmployment_2000
 QC_1990<-ModelData$QCEWEmployment_1990
