@@ -2,13 +2,11 @@
 ##SIMPLE R CODE FOR SIMPLE RATIO-CORRELATION POPULATION ESTIMATES FOR COLORADO COUNTIES, FOLLOWING INSTRUCTIONS FROM:
 ##H. Shyrock and J. Segal (1980). 'The Methods and Materials of Demography', Volume 2. U.S. Department of Commerce.
 ##NOTE: THE MODEL IS APPLIED HERE WITH THE FULL (TEN YEAR) RATIO ADJUSTMENT, BUT FOLLOWING REASON, THE RATIO ADJUSTMENT SHOULD BE INTERPOLATED.
-##FURTHER NOTES AT http://www.demog.berkeley.edu/~eddieh/AppliedDemographyToolbox/RatioCorrelationEstimates/RegressionEstimates.pdf
+##FURTHER NOTES AT https://github.com/AppliedDemogToolbox/Hunsinger_RatioCorrelationEstimates/raw/master/RegressionEstimates.pdf
 ##
-##EDDIE HUNSINGER, AUGUST 2010 (LAST UPDATED APRIL 2014)
+##EDDIE HUNSINGER, AUGUST 2010 (LAST UPDATED DECEMBER 2018)
 ##http://www.demog.berkeley.edu/~eddieh/
-##edynivn@gmail.com
-##
-##TO SEE THE RELATED PAPER (WITH REFERENCES), GO TO http://www.demog.berkeley.edu/~eddieh/RatioCorrelationEstimates/RegressionEstimates.pdf
+##edyhsgr@gmail.com
 ##
 ##IF YOU WOULD LIKE TO USE, SHARE OR REPRODUCE THIS CODE, BE SURE TO CITE THE SOURCE
 ##
@@ -22,7 +20,7 @@
 #STEP 1: READ DATA IN AND GET RATIOS FOR THE RATIO-CORRELATION METHOD
 #######################################################################################################################################################################################################
 
-ModelData<-read.table(file="http://www.demog.berkeley.edu/~eddieh/RatioCorrelationEstimates/ModelVariables.csv",header=TRUE,sep=",")
+ModelData<-read.table(file="https://github.com/AppliedDemogToolbox/Hunsinger_RatioCorrelationEstimates/raw/master/ModelVariables.csv",header=TRUE,sep=",")
 
 HU_2000<-ModelData$HousingUnits_2000
 HU_1990<-ModelData$HousingUnits_1990
@@ -121,7 +119,7 @@ Sys.sleep(3)
 #STEP 7: READ IN DATA FOR 2009 VARIABLES (AND 2000 WITH UPDATED GEOGRAPHIC BOUNDARIES), TO BE USED IN A 2009 RATIO-CORRELATION POPULATION ESTIMATE
 #######################################################################################################################################################################################################
 
-EstimateData2009<-read.table(file="http://www.demog.berkeley.edu/~eddieh/RatioCorrelationEstimates/2009EstimateVariables.csv",header=TRUE,sep=",")
+EstimateData2009<-read.table(file="https://github.com/AppliedDemogToolbox/Hunsinger_RatioCorrelationEstimates/raw/master/2009EstimateVariables.csv",header=TRUE,sep=",")
 
 HU2009_2009<-EstimateData2009$HousingUnits_2009
 HU2009_2000<-EstimateData2009$HousingUnits_2000
