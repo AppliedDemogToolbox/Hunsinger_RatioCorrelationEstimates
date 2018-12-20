@@ -10,7 +10,7 @@
 #STEP 1: READ DATA IN AND GET RATIOS FOR THE RATIO-CORRELATION METHOD
 #######################################################################################################################################################################################################
 
-ModelData<-read.table(file="http://www.demog.berkeley.edu/~eddieh/RatioCorrelationEstimates/YoungVariables.csv",header=TRUE,sep=",")
+ModelData<-read.table(file="https://github.com/AppliedDemogToolbox/Hunsinger_RatioCorrelationEstimates/raw/master/YoungVariables.csv",header=TRUE,sep=",")
 
 B_2000<-ModelData$Births_2000
 B_1990<-ModelData$Births_1990
@@ -84,7 +84,7 @@ Sys.sleep(3)
 #STEP 7: READ IN DATA FOR 2009 VARIABLES (AND 2000 WITH UPDATED GEOGRAPHIC BOUNDARIES), TO BE USED IN A 2009 RATIO-CORRELATION POPULATION ESTIMATE
 #######################################################################################################################################################################################################
 
-#EstimateData2009<-read.table(file="http://www.demog.berkeley.edu/~eddieh/RatioCorrelationEstimates/2009EstimateVariables.csv",header=TRUE,sep=",")
+#EstimateData2009<-read.table(file="https://github.com/AppliedDemogToolbox/Hunsinger_RatioCorrelationEstimates/raw/master/2009EstimateVariables.csv",header=TRUE,sep=",")
 
 B2009_2009<-EstimateData2009$Births_2009
 B2009_2000<-EstimateData2009$Births_2000
