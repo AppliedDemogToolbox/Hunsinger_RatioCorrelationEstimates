@@ -1,0 +1,1 @@
+Note: For 2000 Births, Deaths, School Enrollment, Registered Vehicles, Registered Voters and QCEW, 7.4% of Boulder data was taken from Boulder and added to Broomfield, and 4.3% of Adams data was taken from Adams and added to Broomfield; for 2009 School Enrollment, the same proportions were transferred.
