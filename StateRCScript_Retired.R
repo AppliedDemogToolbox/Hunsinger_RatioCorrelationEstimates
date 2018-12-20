@@ -10,7 +10,7 @@
 #STEP 1: READ DATA IN AND GET RATIOS FOR THE RATIO-CORRELATION METHOD
 #######################################################################################################################################################################################################
 
-ModelData<-read.table(file="http://www.demog.berkeley.edu/~eddieh/RatioCorrelationEstimates/RetiredVariables.csv",header=TRUE,sep=",")
+ModelData<-read.table(file="https://github.com/AppliedDemogToolbox/Hunsinger_RatioCorrelationEstimates/raw/master/RetiredVariables.csv",header=TRUE,sep=",")
 
 M_2000<-ModelData$Medicare_2000
 M_1990<-ModelData$Medicare_1990
