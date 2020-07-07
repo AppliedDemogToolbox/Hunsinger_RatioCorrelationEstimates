@@ -1,7 +1,9 @@
-#######################################################################################################################################################################################################
+##########################################
 ##SIMPLE R CODE FOR SIMPLE RATIO-CORRELATION POPULATION ESTIMATES FOR COLORADO COUNTIES, FOLLOWING INSTRUCTIONS FROM:
 ##H. Shyrock and J. Segal (1980). 'The Methods and Materials of Demography', Volume 2. U.S. Department of Commerce.
-##NOTE: THE MODEL IS APPLIED HERE WITH THE FULL (TEN YEAR) RATIO ADJUSTMENT, BUT FOLLOWING REASON, THE RATIO ADJUSTMENT SHOULD BE INTERPOLATED.
+##
+##**NOTE: THE MODEL IS APPLIED HERE WITH THE FULL (TEN YEAR) RATIO ADJUSTMENT, BUT FOLLOWING REASON, THE RATIO ADJUSTMENT SHOULD BE INTERPOLATED.**
+##
 ##FURTHER NOTES AT https://github.com/AppliedDemogToolbox/Hunsinger_RatioCorrelationEstimates/raw/master/RegressionEstimates.pdf
 ##
 ##EDDIE HUNSINGER, AUGUST 2010 (LAST UPDATED DECEMBER 2018)
@@ -13,12 +15,11 @@
 ##EXAMPLE DATA IS LINKED, SO YOU SHOULD BE ABLE TO SIMPLY COPY ALL AND PASTE INTO R
 ##
 ##THERE IS NO WARRANTY FOR THIS CODE
-#######################################################################################################################################################################################################
+##########################################
 
-
-#######################################################################################################################################################################################################
-#STEP 1: READ DATA IN AND GET RATIOS FOR THE RATIO-CORRELATION METHOD
-#######################################################################################################################################################################################################
+##########################################
+##STEP 1: READ DATA IN AND GET RATIOS FOR THE RATIO-CORRELATION METHOD
+##########################################
 
 ModelData<-read.table(file="https://github.com/AppliedDemogToolbox/Hunsinger_RatioCorrelationEstimates/raw/master/ModelVariables.csv",header=TRUE,sep=",")
 
@@ -61,31 +62,31 @@ P_1990Ratios<-(P_1990/sum(P_1990))
 P_Ratios<-(P_2000/sum(P_2000))/(P_1990/sum(P_1990))
 
 
-#######################################################################################################################################################################################################
-#STEP 2: PLOT ANY SELECTED CORRELATIONS
-#######################################################################################################################################################################################################
+##########################################
+##STEP 2: PLOT ANY SELECTED CORRELATIONS
+##########################################
 
 plot(P_Ratios~B_Ratios+SE_Ratios+RVe_Ratios+RVo_Ratios)
 
 
-#######################################################################################################################################################################################################
-#STEP 3: MAKE A MODEL
-#######################################################################################################################################################################################################
+##########################################
+##STEP 3: MAKE A MODEL
+##########################################
 
 Model<-lm(P_Ratios~B_Ratios+SE_Ratios+RVe_Ratios+RVo_Ratios)
 
 
-#######################################################################################################################################################################################################
-#STEP 4: REVIEW MODEL
-#######################################################################################################################################################################################################
+##########################################
+##STEP 4: REVIEW MODEL
+##########################################
 
 summary(Model)
 hist(residuals(Model),10,xlim=c(-.2,.2),col="blue")
 
 
-#######################################################################################################################################################################################################
-#STEP 5: MAKE THE MODEL-PREDICTED ESTIMATES AND COMPARE THEM TO THE ACTUAL 2000 CENSUS (JUST TO SEE THE ERRORS FROM THE MODEL ITSELF, NOT TO SAY HOW A 2010 PREDICTION WILL COMPARE TO THE 2010 CENSUS)
-#######################################################################################################################################################################################################
+##########################################
+##STEP 5: MAKE THE MODEL-PREDICTED ESTIMATES AND COMPARE THEM TO THE ACTUAL 2000 CENSUS (JUST TO SEE THE ERRORS FROM THE MODEL ITSELF, NOT TO SAY HOW A 2010 PREDICTION WILL COMPARE TO THE 2010 CENSUS)
+##########################################
 
 P_2000RatioChangePrediction<-Model$coefficients[1]+B_Ratios*Model$coefficients[2]+SE_Ratios*Model$coefficients[3]+RVe_Ratios*Model$coefficients[4]+RVo_Ratios*Model$coefficients[5]
 P_2000Prediction<-(P_2000RatioChangePrediction*P_1990Ratios*sum(P_2000))
@@ -106,18 +107,18 @@ ModelMAPE<-mean(abs((P_2000Prediction-P_2000)/P_2000))*100
 ModelMAPE
 
 
-#######################################################################################################################################################################################################
-#STEP 6: TABLE AND WRITE THE DATA OUT TO A CSV...CONSIDER MORE
-#######################################################################################################################################################################################################
+##########################################
+##STEP 6: TABLE AND WRITE THE DATA OUT TO A CSV...CONSIDER MORE
+##########################################
 
 P_2000PredictionAndActual<-array(c(P_2000Prediction,P_2000,P_1990,P_2000Prediction-P_2000,(P_2000Prediction-P_2000)/P_2000),c(length(P_2000Prediction),5))
 #write.table(P_2000PredictionAndActual,file="...FittedModel.csv",sep=",")
 Sys.sleep(3)
 
 
-#######################################################################################################################################################################################################
-#STEP 7: READ IN DATA FOR 2009 VARIABLES (AND 2000 WITH UPDATED GEOGRAPHIC BOUNDARIES), TO BE USED IN A 2009 RATIO-CORRELATION POPULATION ESTIMATE
-#######################################################################################################################################################################################################
+##########################################
+##STEP 7: READ IN DATA FOR 2009 VARIABLES (AND 2000 WITH UPDATED GEOGRAPHIC BOUNDARIES), TO BE USED IN A 2009 RATIO-CORRELATION POPULATION ESTIMATE
+##########################################
 
 EstimateData2009<-read.table(file="https://github.com/AppliedDemogToolbox/Hunsinger_RatioCorrelationEstimates/raw/master/2009EstimateVariables.csv",header=TRUE,sep=",")
 
@@ -160,9 +161,9 @@ P2009_2000Ratios<-(P2009_2000/sum(P2009_2000))
 P2009_Ratios<-(P2009_2009/sum(P2009_2009))/(P2009_2000/sum(P2009_2000))
 
 
-#######################################################################################################################################################################################################
-#STEP 8: MAKE THE MODEL-PREDICTED ESTIMATES AND COMPARE THEM TO OTHER ESTIMATES 
-#######################################################################################################################################################################################################
+##########################################
+##STEP 8: MAKE THE MODEL-PREDICTED ESTIMATES AND COMPARE THEM TO OTHER ESTIMATES 
+##########################################
 
 P_2009RatioChangePrediction<-Model$coefficients[1]+B2009_Ratios*Model$coefficients[2]+SE2009_Ratios*Model$coefficients[3]+RVe2009_Ratios*Model$coefficients[4]+RVo2009_Ratios*Model$coefficients[5]
 P_2009Prediction<-(P_2009RatioChangePrediction*P2009_2000Ratios*sum(P2009_2009))
@@ -183,9 +184,9 @@ EstimateCompareMAPE<-mean(abs((P_2009Prediction-P2009_2009)/P2009_2009))*100
 EstimateCompareMAPE
 
 
-#######################################################################################################################################################################################################
-#STEP 9: TABLE AND WRITE THE 2009 ESTIMATE DATA OUT TO A CSV...CONSIDER MORE
-#######################################################################################################################################################################################################
+##########################################
+##STEP 9: TABLE AND WRITE THE 2009 ESTIMATE DATA OUT TO A CSV...CONSIDER MORE
+##########################################
 
 P_2009PredictionAndActual<-array(c(P_2009Prediction,P2009_2009,P2009_2000,P_2009Prediction-P2009_2009,(P_2009Prediction-P2009_2009)/P2009_2009),c(length(P_2009Prediction),5))
 #write.table(P_2009PredictionAndActual,file="...Estimated2009.csv",sep=",")
